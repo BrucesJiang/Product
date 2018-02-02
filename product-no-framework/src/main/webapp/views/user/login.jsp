@@ -62,9 +62,8 @@
                                                             </tr>
                                                             <tr>
                                                                 <td colspan="2" style="text-align:center">
-                                                                    <input type="checkbox" name="rememberName"/>
-                                                                    记住用户名&nbsp;&nbsp;
-                                                                    <input type="checkbox" name="autologin"/> 自动登录
+                                                                    <input type="checkbox" name="autologin"/>
+                                                                    记住用户状态
                                                                 </td>
                                                             </tr>
                                                             <tr>

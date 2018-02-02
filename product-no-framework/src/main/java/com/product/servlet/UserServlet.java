@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -66,6 +67,18 @@ public class UserServlet extends HttpServlet {
                 request.getSession().setAttribute("user_msg","用户名或密码错误，或者您没有激活账号？");
                 response.sendRedirect("/views/user/login.jsp");
             }else {
+                String autologin = request.getParameter("autologin");
+                if(autologin.equalsIgnoreCase("on")){ //如果执行自动登陆
+                    Cookie cookie = new Cookie("user", user.getUsername() + "&"
+                            + user.getPassword());
+                    cookie.setPath("/"); // "/"代表当前应用
+                    if (autologin != null) { // 将用户信息保存到cookie中
+                        cookie.setMaxAge(60 * 60 * 24 * 7); // 保存7天
+                    } else { // 将cookie对象信息清除
+                        cookie.setMaxAge(0);
+                    }
+                    response.addCookie(cookie); // 将Cookie对象保存到客户端
+                }
                 request.getSession().setAttribute("user", user);
                 request.getRequestDispatcher("/views/home.jsp").forward(request, response);
             }
