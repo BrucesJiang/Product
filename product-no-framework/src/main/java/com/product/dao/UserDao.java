@@ -2,6 +2,7 @@ package com.product.dao;
 
 import com.product.domain.User;
 import com.product.utils.C3P0Utils;
+import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 
@@ -28,5 +29,17 @@ public class UserDao {
         QueryRunner qr = new QueryRunner(C3P0Utils.getDataSource());
         String sql = "UPDATE user SET state = 1 WHERE activeCode = ?";
         qr.update(sql, activeCode);
+    }
+
+    public User findUserById(String id) throws SQLException{
+        QueryRunner qr = new QueryRunner(C3P0Utils.getDataSource());
+        String sql = "SELECT * FROM user WHERE id = ? AND state = 1";
+        return qr.query(sql, new BeanHandler<User>(User.class), id);
+    }
+
+    public void updateUserInfo(User user) throws SQLException{
+        QueryRunner qr = new QueryRunner(C3P0Utils.getDataSource());
+        String sql = "UPDATE user SET username = ?, password = ?, gender = ?, telephone = ? WHERE id = ? AND state = 1";
+        qr.update(sql, user.getUsername(), user.getPassword(), user.getGender(), user.getTelephone(), user.getId());
     }
 }

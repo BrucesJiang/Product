@@ -4,6 +4,7 @@ import com.product.dao.UserDao;
 import com.product.domain.User;
 import com.product.exception.UserException;
 import com.product.service.UserService;
+import com.product.utils.MD5Utils;
 import com.product.utils.SendEMail;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,6 +45,26 @@ public class UserServiceImpl implements UserService{
         }catch(SQLException e){
             logger.error(e.getMessage(), e);
             throw new UserException("激活用户失败，请重新激活！");
+        }
+    }
+
+    @Override
+    public User findUserById(String id) throws UserException {
+        try{
+            return userDao.findUserById(id);
+        }catch(SQLException e){
+            logger.error(e.getMessage(), e);
+            throw new UserException("用户不存在");
+        }
+    }
+
+    @Override
+    public void updateUserInfo(User user) throws UserException {
+        try{
+            userDao.updateUserInfo(user);
+        }catch(SQLException e) {
+            logger.error(e.getMessage(), e);
+            throw new UserException(e.getMessage());
         }
     }
 }

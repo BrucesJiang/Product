@@ -32,4 +32,19 @@ public interface UserService {
      * @throws SQLException
      */
     public void activeUser(String activeCode) throws UserException;
+
+    /**
+     * 根据用户ID查找用户信息
+     * @param id 用户id
+     * @return 用户信息
+     * @throws UserException
+     */
+    public User findUserById(String id) throws UserException;
+
+    /**
+     * 更新用户信息
+     * @param user
+     * @throws UserException
+     */
+    public void updateUserInfo(User user) throws UserException;
 }

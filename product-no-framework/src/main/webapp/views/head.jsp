@@ -21,7 +21,7 @@
                 <a href="cart.jsp">购物车</a> |
                 <a href="#">帮助中心</a> |
                 <c:if test="${user != null}">
-                    <a href="${pageContext.request.contextPath }/myAccount" >我的帐户</a> |
+                    <a href="/views/user/account_management.jsp" >我的帐户</a> |
                     <a href="${pageContext.request.contextPath }/user?method=logout">登出</a>
                 </c:if>
             </td>
