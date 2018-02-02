@@ -70,7 +70,7 @@ public class EncodingFilter implements javax.servlet.Filter {
                     logger.error(e.getMessage(), e);
                 }
             } else if ("get".equalsIgnoreCase(method)) { //处理get请求
-                Map<String, String[]> parameterMap = this.getParameterMap();
+                Map<String, String[]> parameterMap = request.getParameterMap();
                 if (!hasEncoding) { //如果没有没有编码, 仅仅进行一次编码
                     for (String pm : parameterMap.keySet()) {
                         String[] values = parameterMap.get(pm);

@@ -17,12 +17,33 @@ public class UserServiceImpl implements UserService{
     public void register(User user) throws UserException {
         try{
             userDao.addUser(user);
-            String emailMsg = "注册成功，请<a href='http://www.product.com?activeCode="
+            String emailMsg = "注册成功，请<a href='http://www.product.com/user?method=active&activeCode="
                     + user.getActiveCode() + "'>激活</a>";
             SendEMail.sendMail(user.getEmail(), emailMsg);
         }catch(SQLException e){
             logger.error(e.getMessage(), e);
             throw new UserException("用户信息添加失败！");
+        }
+    }
+
+
+    @Override
+    public User findUser(String username, String password) throws UserException{
+        try{
+            return userDao.findUser(username, password);
+        }catch(SQLException e){
+            logger.error(e.getMessage(), e);
+            throw new UserException("用户名或密码错误，或者您没有激活账号？");
+        }
+    }
+
+    @Override
+    public void activeUser(String activeCode) throws UserException {
+        try{
+            userDao.activeUser(activeCode);
+        }catch(SQLException e){
+            logger.error(e.getMessage(), e);
+            throw new UserException("激活用户失败，请重新激活！");
         }
     }
 }
