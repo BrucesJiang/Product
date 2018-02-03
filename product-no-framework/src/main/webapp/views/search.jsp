@@ -52,7 +52,6 @@
     function changeBackground_out(div) {
         div.style.background = "white";
     }
-
     //-->
 </script>
 
@@ -60,15 +59,6 @@
     <a href="${pageContext.request.contextPath}/pageServlet?category=文学">文学</a>
     <a href="${pageContext.request.contextPath}/pageServlet?category=生活">生活</a>
     <a href="${pageContext.request.contextPath}/pageServlet?category=计算机">计算机</a>
-    <a href="${pageContext.request.contextPath}/pageServlet?category=外语">外语</a>
-    <a href="${pageContext.request.contextPath}/pageServlet?category=经营">经管</a>
-    <a href="${pageContext.request.contextPath}/pageServlet?category=励志">励志</a>
-    <a href="${pageContext.request.contextPath}/pageServlet?category=社科">社科</a>
-    <a href="${pageContext.request.contextPath}/pageServlet?category=学术">学术</a>
-    <a href="${pageContext.request.contextPath}/pageServlet?category=少儿">少儿</a>
-    <a href="${pageContext.request.contextPath}/pageServlet?category=艺术">艺术</a>
-    <a href="${pageContext.request.contextPath}/pageServlet?category=原版">原版</a>
-    <a href="${pageContext.request.contextPath}/pageServlet?category=科技">科技</a>
     <a href="${pageContext.request.contextPath}/pageServlet" style="color:#FFFF00">全部商品目录</a>
 </div>
 <div id="divsearch">
