@@ -2,8 +2,7 @@
 SQLyog Enterprise Trial - MySQL GUI v7.11 
 MySQL - 5.0.87-community-nt : Database - product
 *********************************************************************
-*/
-
+*/
 
 /*!40101 SET NAMES utf8 */;
 
@@ -55,6 +54,7 @@ CREATE TABLE `orders` (
 DROP TABLE IF EXISTS `products`;
 
 CREATE TABLE `products` (
+  `price` double NOT NULL default '0',
   `id` varchar(100) NOT NULL default '',
   `name` varchar(40) default NULL,
   `category` varchar(40) default NULL,
@@ -65,6 +65,8 @@ CREATE TABLE `products` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `products` */
+
+insert  into `products`(`price`,`id`,`name`,`category`,`pnum`,`imgurl`,`description`) values (90,'1','Java编程思想','计算机',100,'9288920-1_b.jpg',NULL),(75.5,'2','C++语言基础','计算机',1000,'23329703-1_b.jpg',NULL),(80,'3','C语言程序设计','计算机',50,'23301847-1_b.jpg',NULL),(60,'4','设计模式','计算机',60,'696673-1_b.jpg',NULL),(100.2,'5','中国通史','文学',400,'23339643-1_w.jpg',NULL),(60,'6','中国哲学史','文学',200,'23280478-1_w.jpg',NULL),(55.5,'7','Java Web','计算机',300,'20420983-1_w.jpg',NULL);
 
 /*Table structure for table `user` */
 
@@ -83,11 +85,11 @@ CREATE TABLE `user` (
   `role` varchar(10) NOT NULL default '普通用户',
   `registTime` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 /*Data for the table `user` */
 
-insert  into `user`(`id`,`username`,`password`,`gender`,`email`,`telephone`,`introduce`,`activeCode`,`state`,`role`,`registTime`) values (1,'BruceJiang','123456','男','hntkjyn@163.com','13043266625','发顺丰的',NULL,1,'普通用户','2018-01-27 22:08:18'),(2,'tom','123456','男','bruces.jiang@gmail.com','13043266625','hah',NULL,1,'admin','2018-01-27 22:15:16'),(3,'Bruce','123456','男','hntkjyn@163.com ','13043266625','来自北京','a4bad4da-c028-4c01-8292-97ba615dadac',0,'普通用户','2018-01-31 20:05:02'),(4,'Bruce','123456','男','hntkjyn@163.com ','13043266625','来自北京','dab610b0-6fa6-4fe1-b419-feeed7841ac3',0,'普通用户','2018-02-01 14:48:16'),(5,'Bruce','123456','男','hntkjyn@163.com','13043266625','fdsf ','e64f7e6d-a756-4dc7-9765-c1949fea7f87',1,'普通用户','2018-02-01 23:10:31');
+insert  into `user`(`id`,`username`,`password`,`gender`,`email`,`telephone`,`introduce`,`activeCode`,`state`,`role`,`registTime`) values (1,'BruceJiang','123456','男','hntkjyn@163.com','13043266625','发顺丰的',NULL,1,'普通用户','2018-01-27 22:08:18'),(2,'tom','123456','男','bruces.jiang@gmail.com','13043266625','hah',NULL,1,'admin','2018-01-27 22:15:16'),(3,'Bruce','123456','男','hntkjyn@163.com ','13043266625','来自北京','a4bad4da-c028-4c01-8292-97ba615dadac',0,'普通用户','2018-01-31 20:05:02'),(4,'Bruce','123456','男','hntkjyn@163.com ','13043266625','来自北京','dab610b0-6fa6-4fe1-b419-feeed7841ac3',0,'普通用户','2018-02-01 14:48:16'),(5,'Bruce','123456','男','hntkjyn@163.com','13043266625','fdsf ','e64f7e6d-a756-4dc7-9765-c1949fea7f87',1,'普通用户','2018-02-01 23:10:31'),(6,NULL,'e10adc3949ba59abbe56e057f20f883e','男','bruce@163.com','13043266625','哈哈哈','a497b19a-4123-4043-b3ba-ee166909753c',1,'普通用户','2018-02-02 16:24:24');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

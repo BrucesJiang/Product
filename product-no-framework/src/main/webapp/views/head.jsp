@@ -18,7 +18,7 @@
             </td>
             <td style="text-align:right">
                 <img src="/public/images/cart.gif" width="26" height="23" style="margin-bottom:-4px"/>&nbsp;
-                <a href="cart.jsp">购物车</a> |
+                <a href="/views/product/cart.jsp">购物车</a> |
                 <a href="#">帮助中心</a> |
                 <c:if test="${user != null}">
                     <a href="/views/user/account_management.jsp" >我的帐户</a> |

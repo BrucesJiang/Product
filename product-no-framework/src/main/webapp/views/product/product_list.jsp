@@ -23,7 +23,7 @@
         <tr>
             <td>
                 <div style="text-align:right; margin:5px 10px 5px 0px">
-                    <a href="index.jsp">首页</a>
+                    <a href="/views/home.jsp">首页</a>
                     &nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;
                     计算机&nbsp;&nbsp;&nbsp;&nbsp;&gt;&nbsp;&nbsp;&nbsp;&nbsp;
                     图书列表
@@ -45,13 +45,13 @@
                                             <div class="divbookpic">
                                                 <p>
                                                     <a href="#">
-                                                        <img src="/public/images/bookimage/${b.imgurl}"
+                                                        <img src="/public/images/bookimage/${b.imgUrl}"
                                                              width="115" height="129" border="0"/>
                                                     </a>
                                                 </p>
                                             </div>
                                             <div class="divlisttitle">
-                                                <a href="${pageContext.request.contextPath }/findBookInfoServlet?id=${b.id}">书名:${b.name}<br/>售价:${b.price }
+                                                <a href="${pageContext.request.contextPath }/product?method=findBookInfo&id=${b.id}">书名:${b.name}<br/>售价:${b.price }
                                                 </a>
                                             </div>
                                         </td>
